@@ -1,4 +1,4 @@
-ROM ubuntu:18.04
+FROM ubuntu:18.04
 RUN apt update \
 && apt install -y gnupg wget apt-transport-https \
 && wget -O - https://repo.jellyfin.org/jellyfin_team.gpg.key | apt-key add - \
