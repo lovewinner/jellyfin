@@ -7,5 +7,5 @@ RUN apt update \
 && apt install -y jellyfin \
 && apt remove wget \
 && apt autoremove
-#&& chmod 777 /dev/dri/renderD128
+ENTRYPOINT [ "chmod 777 /dev/dri/renderD128" ]
 CMD [ "/usr/bin/jellyfin" ] 
