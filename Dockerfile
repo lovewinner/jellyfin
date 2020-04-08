@@ -11,6 +11,7 @@ RUN apt update \
 && mkdir -p /cache /config /media \
 && chmod 777 /cache /config /media 
 COPY jellyfin_start.sh /usr/bin/
+RUN chmod +x /usr/bin/jellyfin_start.sh
 EXPOSE 8096
 VOLUME /cache /config /media
 CMD [ "./usr/bin/jellyfin_start.sh" ] 
