@@ -1,7 +1,7 @@
 # lovewinner-jellyfin
 FROM ubuntu:18.04
-RUN mkdir -p /jellyfin /media \
-&& chmod 777 /jellyfin /media
+RUN mkdir -p /jellyfin /media /cache \
+&& chmod 777 /jellyfin /media /cache
 VOLUME /jellyfin /media
 RUN apt update \
 && apt install -y ffmpeg gnupg wget apt-transport-https \
