@@ -6,4 +6,4 @@ RUN apt update \
 && apt update \
 && apt install -y jellyfin 
 #&& chmod 777 /dev/dri/renderD128
-ENTRYPOINT /bin/jellyfin
+CMD [ "/bin/jellyfin" ] 
