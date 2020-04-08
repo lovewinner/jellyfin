@@ -6,7 +6,7 @@ RUN apt update \
 && apt update \
 && apt install -y jellyfin \
 && apt remove wget \
-&& apt autoremove \
+&& apt autoremove -y \
 && mkdir -p /cache /config /media \
 && chmod 777 /cache /config /media 
 EXPOSE 8096
