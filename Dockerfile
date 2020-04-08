@@ -5,7 +5,7 @@ RUN apt update \
 && wget -O - https://repo.jellyfin.org/jellyfin_team.gpg.key | apt-key add - \
 && echo "deb [arch=$( dpkg --print-architecture )] https://repo.jellyfin.org/$( awk -F'=' '/^ID=/{ print $NF }' /etc/os-release ) $( awk -F'=' '/^VERSION_CODENAME=/{ print $NF }' /etc/os-release ) main" | tee /etc/apt/sources.list.d/jellyfin.list \
 && apt update \
-&& apt -d install jellyfin
+&& apt -d -y install jellyfin 
 
 RUN mkdir -p /jellyfin /media /cache \
 && chmod 777 /jellyfin /media /cache
