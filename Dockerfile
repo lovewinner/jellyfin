@@ -1,6 +1,6 @@
 # lovewinner-jellyfin
 FROM ubuntu:18.04
-RUN mkdir -p /jellyfin /media\
+RUN mkdir -p /jellyfin /media \
 && chmod 777 /jellyfin /media
 VOLUME /jellyfin /media
 RUN apt update \
