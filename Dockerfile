@@ -14,4 +14,6 @@ COPY jellyfin_start.sh /usr/bin/
 RUN chmod +x /usr/bin/jellyfin_start.sh
 EXPOSE 8096
 VOLUME /cache /config /media
+ENTRYPOINT ["--datadir", "/config", \
+    "--cachedir", "/cache"]
 CMD [ "./usr/bin/jellyfin_start.sh" ] 
