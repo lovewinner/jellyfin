@@ -1,3 +1,4 @@
+# lovewinner-jellyfin
 FROM ubuntu:18.04
 RUN apt update \
 && apt install -y ffmpeg gnupg wget apt-transport-https \
@@ -12,4 +13,4 @@ RUN apt update \
 COPY jellyfin_start.sh /usr/bin/
 EXPOSE 8096
 VOLUME /cache /config /media
-CMD [ "/usr/bin/jellyfin" ] 
+CMD [ "./usr/bin/jellyfin_start.sh" ] 
