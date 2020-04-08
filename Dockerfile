@@ -1,5 +1,8 @@
 # lovewinner-jellyfin
 FROM ubuntu:18.04
+RUN mkdir -p /jellyfin /media\
+&& chmod 777 /jellyfin /media
+VOLUME /jellyfin /media
 RUN apt update \
 && apt install -y ffmpeg gnupg wget apt-transport-https \
 && wget -O - https://repo.jellyfin.org/jellyfin_team.gpg.key | apt-key add - \
@@ -7,13 +10,12 @@ RUN apt update \
 && apt update \
 && apt install -y jellyfin \
 && apt remove wget -y \
-&& apt autoremove -y \
-&& mkdir -p /cache /config /media \
-&& chmod 777 /cache /config /media 
+&& apt autoremove -y 
+#&& mkdir -p /cache /config /media \
+#&& chmod 777 /cache /config /media 
 COPY jellyfin_start.sh /usr/bin/
 RUN chmod +x /usr/bin/jellyfin_start.sh
 EXPOSE 8096
-VOLUME /cache /config /media
-ENTRYPOINT ["--datadir", "/config", \
-    "--cachedir", "/cache"]
+#VOLUME /cache /config /media
+
 CMD [ "./usr/bin/jellyfin_start.sh" ] 
