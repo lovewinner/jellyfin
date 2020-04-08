@@ -11,5 +11,5 @@ RUN apt update \
 && chmod 777 /cache /config /media 
 EXPOSE 8096
 VOLUME /cache /config /media
-ENTRYPOINT [ "chmod 777 /dev/dri/renderD128" ]
+#ENTRYPOINT [ "chmod 777 /dev/dri/renderD128" ]
 CMD [ "/usr/bin/jellyfin" ] 
