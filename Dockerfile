@@ -6,6 +6,10 @@ RUN apt update \
 && apt update \
 && apt install -y jellyfin \
 && apt remove wget \
-&& apt autoremove
+&& apt autoremove \
+&& mkdir -p /cache /config /media \
+&& chmod 777 /cache /config /media 
+EXPOSE 8096
+VOLUME /cache /config /media
 ENTRYPOINT [ "chmod 777 /dev/dri/renderD128" ]
 CMD [ "/usr/bin/jellyfin" ] 
